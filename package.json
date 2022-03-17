@@ -1,0 +1,19 @@
+{
+  "name": "finances",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JakBel/finances.git"
+  },
+  "author": "Jakub Bełtowski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JakBel/finances/issues"
+  },
+  "homepage": "https://JakBel.github.io/finances"
+}
