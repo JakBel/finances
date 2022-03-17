@@ -60,24 +60,27 @@ const createNewTransaction = () => {
 
     checkCategory(selectedCategory);
 
+    
     newTransaction.innerHTML = `
     <p class="transaction-name">
-        ${categoryIcon} ${nameInput.value}
+    ${categoryIcon} ${nameInput.value}
     </p>
     <p class="transaction-amount">
-        ${amountInput.value}zł
-        <button class="delete" onclick="deleteTransaction(${ID})">
-            <i class="fas fa-times"></i>
-        </button>
+    ${parseFloat(amountInput.value).toFixed(2)}zł
+    <button class="delete" onclick="deleteTransaction(${ID})">
+    <i class="fas fa-times"></i>
+    </button>
     </p>
     `;
 
-    amountInput.value > 0
-        ? incomeSection.append(newTransaction) &&
-          newTransaction.classList.add("income")
-        : expensesSection.append(newTransaction) &&
-          newTransaction.classList.add("expense");
-
+    if(amountInput.value > 0) {
+        incomeSection.append(newTransaction)
+        newTransaction.classList.add("income")
+    } else {
+        expensesSection.append(newTransaction)
+        newTransaction.classList.add("expense")
+    }
+    
     moneyArr.push(parseFloat(amountInput.value));
     countMoney(moneyArr);
 
@@ -128,7 +131,7 @@ const checkCategory = (transaction) => {
 
 const countMoney = (money) => {
     const newMoney = money.reduce((a, b) => a + b);
-    availableMoney.textContent = `${newMoney}zł`;
+    availableMoney.textContent = `${newMoney.toFixed(2)}zł`;
 };
 
 const deleteTransaction = (id) => {
